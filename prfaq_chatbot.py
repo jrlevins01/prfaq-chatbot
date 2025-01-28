@@ -1,17 +1,17 @@
-import os
 import openai
 import streamlit as st
 
-
-# Check if API key exists in Streamlit Secrets
+# Retrieve API Key securely
 if "OPENAI_API_KEY" in st.secrets:
-    api_key = st.secrets["OPENAI_API_KEY"]  # Store it in a variable
-    client = openai.OpenAI(api_key=api_key)  # Use the variable
+    api_key = st.secrets["OPENAI_API_KEY"]
 else:
     st.error("❌ OpenAI API Key is missing! Please set it in Streamlit Secrets.")
+    st.stop()  # Stop execution if key is missing
 
+# Set OpenAI client with the correct API key
+client = openai.OpenAI(api_key=api_key)
 
-st.title("PRFAQuick - by EI/I&S Procurement")
+st.title("PRFAQuick - Jason Levinson")
 
 # User inputs
 title = st.text_input("What is the title of your initiative?")
@@ -35,10 +35,13 @@ if st.button("Generate PRFAQ"):
     Format the response as a structured PRFAQ document.
     """
 
-    response = client.chat.completions.create(
-        model="gpt-4-turbo",
-        messages=[{"role": "user", "content": prompt}]
-    )
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4-turbo",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        st.subheader("Generated PRFAQ")
+        st.write(response.choices[0].message.content)
+    except openai.OpenAIError as e:
+        st.error(f"❌ OpenAI API Error: {e}")
 
-    st.subheader("Generated PRFAQ")
-    st.write(response.choices[0].message.content)
