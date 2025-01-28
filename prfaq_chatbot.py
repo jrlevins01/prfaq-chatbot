@@ -3,7 +3,12 @@ import openai
 import streamlit as st
 
 # Set your OpenAI API key
-OPENAI_API_KEY = "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"  # Replace this with your actual API key
+import streamlit as st
+import openai
+
+# Load API Key from Streamlit secrets
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 st.title("PRFAQuick - by EI/I&S Procurement")
