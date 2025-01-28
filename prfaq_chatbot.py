@@ -2,14 +2,14 @@ import os
 import openai
 import streamlit as st
 
-# Set your OpenAI API key
-import streamlit as st
-import openai
 
-# Load API Key from Streamlit secrets
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+# Check if API key exists in Streamlit Secrets
+if "OPENAI_API_KEY" in st.secrets:
+    api_key = st.secrets["OPENAI_API_KEY"]  # Store it in a variable
+    client = openai.OpenAI(api_key=api_key)  # Use the variable
+else:
+    st.error("❌ OpenAI API Key is missing! Please set it in Streamlit Secrets.")
 
-client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 st.title("PRFAQuick - by EI/I&S Procurement")
 
