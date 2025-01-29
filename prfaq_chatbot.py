@@ -11,7 +11,7 @@ else:
 # Set OpenAI client with the correct API key
 client = openai.OpenAI(api_key=api_key)
 
-st.title("PRFAQ Generator Chatbot")
+st.title("PRFAQuick - by EI/I&S Procurement")
 
 # User inputs
 title = st.text_input("What is the title of your initiative?")
@@ -36,9 +36,9 @@ if st.button("Generate PRFAQ"):
     📌 **Format**:
     1️⃣ **Press Release** (Engaging opening, problem statement, and announcement)
     2️⃣ **FAQs** (Key stakeholder questions with persuasive answers)
-    3️⃣ **Market Justification** (Why this product is needed)
-    4️⃣ **Competitive Advantage** (What makes this stand out)
-    5️⃣ **Call to Action** (Encouraging adoption)
+    3️⃣ **Internal Justification** (Why this program/product is needed)
+    4️⃣ **Benefits** (What are the main benefits this program solves for)
+    5️⃣ **Summary** (brief summary and bullet points of the main features/benefits and closing statement)
 
     **Use the following details to generate the PRFAQ** while ensuring it resonates with the target audience:
 
