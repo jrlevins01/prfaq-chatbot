@@ -26,7 +26,7 @@ generated_prfaq = st.session_state.get("generated_prfaq", None)
 
 if st.button("Generate PRFAQ"):
     prompt = f"""
-    You are an expert procurement manager at a leading medtech company, tasked with crafting a compelling PRFAQ for an upcoming project, program or initiative.
+    You are an expert procurement manager at a leading medtech company, tasked with crafting a compelling PRFAQ for an upcoming project, program or initiative for internal use, not directed toward external parties or customers.
 
     🎯 **Target Audience:** {audience}  
     - Understand their role, concerns, and priorities.
@@ -55,7 +55,7 @@ if st.button("Generate PRFAQ"):
     - Highlight ease of integration for engineers.
     - Focus on usability and efficiency for end-users.
 
-    Generate a well-structured, engaging PRFAQ that directly speaks to the needs and concerns of the intended audience.
+    Generate a well-structured, engaging internal use PRFAQ that directly speaks to the needs and concerns of the intended audience to pitch the idea to the audience and/or explain what the program is about.
     """
 
     try:
