@@ -26,7 +26,7 @@ generated_prfaq = st.session_state.get("generated_prfaq", None)
 
 if st.button("Generate PRFAQ"):
     prompt = f"""
-    You are an expert product manager at a leading tech company, tasked with crafting a compelling PRFAQ for an upcoming product or initiative.
+    You are an expert procurement manager at a leading medtech company, tasked with crafting a compelling PRFAQ for an upcoming project, program or initiative.
 
     🎯 **Target Audience:** {audience}  
     - Understand their role, concerns, and priorities.
